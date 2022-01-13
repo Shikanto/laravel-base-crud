@@ -1,16 +1,20 @@
 @extends('layouts.default')
+@section('links')
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">  
+<script src="{{ asset('js/app.js') }}"></script>  
+@endsection
 
 @section('title', 'ComicsShow')
 
 @section('content')
     <h2>Main Show</h2>
-    <div class="container">
-        <h2 class="mb-3">Singolo fumetto</h2>
-        <h3 class="mb-3">Comics: {{$comic->title}}</h3>
-        <h3 class="mb-3">Description: {{$comic->description}}</h3>
-        <h3 class="mb-3">Price: ${{$comic->price}}</h3>
-        <h3 class="mb-3">Series: {{$comic->series}}</h3>
-        <h3 class="mb-3">Sale_date: {{$comic->sale_date}}</h3>
-        <h3 class="mb-3">Type: {{$comic->type}}</h3>
+    <div class="container" style="margin: 100px auto; width: 900px">
+        <h2 style="margin-bottom: 50px">Singolo fumetto</h2>
+        <h3 style="margin-bottom: 50px">Comics: {{$comic->title}}</h3>
+        <h3 style="margin-bottom: 50px">Description: {{$comic->description}}</h3>
+        <h3 style="margin-bottom: 50px">Price: ${{$comic->price}}</h3>
+        <h3 style="margin-bottom: 50px">Series: {{$comic->series}}</h3>
+        <h3 style="margin-bottom: 50px">Sale date: {{$comic->sale_date}}</h3>
+        <h3 style="margin-bottom: 50px">Type: {{$comic->type}}</h3>
         <img src="{{ $comic->thumb}}" alt="copertina">
 @endsection

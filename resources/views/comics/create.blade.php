@@ -1,10 +1,15 @@
 @extends('layouts.default')
 
 @section('title', 'ComicsCreateForm')
-
+@section('links')
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">  
+<script src="{{ asset('js/app.js') }}"></script>  
+@endsection
+@include('partials.links')
+    
 @section('content')
-    <h2>Main Create</h2>
-    <div class="container">
+    
+    <div class="container my-4">
     <h2>Nuovo comic</h2>
     
     <form action="{{ route("comics.store" )}}" method="post">
