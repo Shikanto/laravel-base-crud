@@ -17,4 +17,12 @@
         <h3 style="margin-bottom: 50px">Sale date: {{$comic->sale_date}}</h3>
         <h3 style="margin-bottom: 50px">Type: {{$comic->type}}</h3>
         <img src="{{ $comic->thumb}}" alt="copertina">
+        @include('partials.delete_btn')
+        <div>
+            <form action="{{ route('comics.edit', $comic->id)}}" method="get">
+                @csrf
+                
+                <button type= "submit">Modifica</button>
+            </form>
+        </div>
 @endsection

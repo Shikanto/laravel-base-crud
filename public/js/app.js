@@ -19380,6 +19380,20 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+window.addEventListener("DOMContentLoaded", function () {
+  var formsDelete = document.querySelectorAll(".form-delete");
+  formsDelete.forEach(function (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var result = confirm("Sei sicuro di voler eliminare definitivamente il fumetto?");
+
+      if (result) {
+        form.submit();
+      }
+    });
+  });
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

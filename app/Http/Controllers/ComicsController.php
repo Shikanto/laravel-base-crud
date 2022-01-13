@@ -66,9 +66,9 @@ class ComicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comics $comic)
     {
-        //
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -78,9 +78,11 @@ class ComicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comics $comic)
     {
-        //
+        $formData=$request->all();
+        $comic->update($formData);
+        return redirect()->route('comics.show', $comic->id)->with('msg', 'Comics aggiornato con successo');
     }
 
     /**
@@ -91,6 +93,10 @@ class ComicsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comics = Comics::findOrFail($id);
+        $comics->delete();
+
+        return redirect()->route('comics.index')->with("msg", "Fumetto rimosso correttamente");
+
     }
 }
